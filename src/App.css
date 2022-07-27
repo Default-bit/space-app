@@ -387,10 +387,6 @@ body {
   animation: openclose 5s ease-in-out infinite;
 }
 
-.word1, .word2, .word3 {
-  /* font-family: tahoma; */
-}
-
 @keyframes openclose {
   0% {
     top: 0.2rem;
@@ -508,7 +504,4 @@ body {
 
 .details-desc {
   font-size: 16px;
-}
-
-.planetCanvas {
 }
