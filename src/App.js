@@ -84,9 +84,12 @@ function App() {
     console.log(event.target.scrollLeft);
     setDistance(event.target.scrollLeft);
   }
-  
-  const handleClick = () => {
 
+  const [selected, setSelected] = useState(0);
+  
+  const handleClick = (event, idx) => {
+    setSelected(idx);
+    console.log(idx);
   }
 
   return (
@@ -170,8 +173,8 @@ function App() {
           <div className="example">
             <div>
             <div className="cards-stack">
-            {planets.slice(1).map((planet) => (
-                <a key={planet.name} className='carD' style={{borderRadius: "18px", textDecoration: "none", color: "black"}} onClick={handleClick}>
+            {planets.slice(1).map((planet, idx) => (
+                <a key={idx} className='carD' style={{borderRadius: "18px", textDecoration: "none", color: "black"}} onClick={event => handleClick(event, idx)}>
                     <div className="card-cover"></div>
                     <div className="details">
                         <div className="details-title">{planet.name}</div>
@@ -183,7 +186,7 @@ function App() {
             
             </div>
             <div className="planetCanvas">
-            <PlanetExample />
+            <PlanetExample id={selected} />
             </div>
           </div>
         </div>

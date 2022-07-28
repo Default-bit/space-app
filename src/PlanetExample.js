@@ -53,7 +53,6 @@ const state = proxy({
   },
 })
 
-
 function Planets({ ...props }) {
     const group = useRef()
     const { nodes, materials } = useGLTF('planettwo.glb')
@@ -108,8 +107,9 @@ function Planets({ ...props }) {
     )
 }
 
-
-  function Planet2({ ...props }) {
+  function Planet2({ index}) {
+    
+    console.log(index + " is chosen");
     const ref = useRef()
     const snap = useSnapshot(state)
 
@@ -184,13 +184,19 @@ function Planets({ ...props }) {
             {geometry: nodes.Sphere005_2.geometry, material: materials.surfaceN3, materialColor: snap.items.surfaceN3},
             {geometry: nodes.Sphere005_3.geometry, material: materials.surfaceN4, materialColor: snap.items.surfaceN4},
             {geometry: nodes.Sphere005_4.geometry, material: materials.surfaceN5, materialColor: snap.items.surfaceN5},
-            {geometry: nodes.Sphere005_5.geometry, material: materials.surfaceN6, materialColor: snap.items.surfaceN6}]
+            {geometry: nodes.Sphere005_5.geometry, material: materials.surefaceN6, materialColor: snap.items.surefaceN6}]
       }
     ]
 
-    let [currentPlanet, setCurrentPlanet] = useState(planetsArray[0]);
-    // const [geometry, setGeometry] = useState(currentPlanet.mesh);
-    console.log(currentPlanet.mesh);
+    const [currentPlanet, setCurrentPlanet] = useState(planetsArray[index]);
+
+    useEffect(() => {
+      setCurrentPlanet(planetsArray[index]);
+    });
+
+    // console.log(snap.items[snap.current]);
+    // console.log(state);
+    
     return (
       <group
       ref={ref}
@@ -214,19 +220,26 @@ function Planets({ ...props }) {
   }
 
 
+
   function Picker() {
     const snap = useSnapshot(state)
     return (
       <div style={{ display: snap.current ? "flex" : "none" }} className="pickerAndText">
-        <HexColorPicker className="picker" color={snap.items[snap.current]} onChange={(color) => 
-          state.items[snap.current] = color} />
+        <HexColorPicker 
+        className="picker" 
+        color={snap.items[snap.current]}
+        onChange={(color) => 
+          state.items[snap.current] = color}
+          />
         <h1 className="exampleH1">{snap.current}</h1>
       </div>
     )
   }
 
-export default function PlanetExample() {
-  const canvasRef = useRef(null);
+export default function PlanetExample( {id} ) {
+  const canvasRef = useRef(null)
+  console.log(id);
+
   return (
     <>
 <div className="columnDiv">
@@ -235,7 +248,7 @@ export default function PlanetExample() {
         <ambientLight intensity={0.7} />
         <spotLight intensity={0.5} angle={0.1} penumbra={1} position={[10, 15, 10]} castShadow />
         <Suspense fallback={null}>
-          <Planet2/>
+          <Planet2 index={id}/>
           <Environment preset="city" />
         </Suspense>
         <OrbitControls minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} enableZoom={false} enablePan={false} />
