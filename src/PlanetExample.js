@@ -11,13 +11,48 @@ import exportAsImage from "./utils/exportAsImage";
 const state = proxy({
   current: null,
   items: {
+    surfaceM1: "#ffffff",
+    surfaceM2: "#ffffff",
+    surfaceV1: "#ffffff",
+    surfaceV2: "#ffffff",
+    surfaceV3: "#ffffff",
+    surfaceV4: "#ffffff",
+    surfaceV5: "#ffffff",
+    surfaceV6: "#ffffff",
+    surfaceE1: "#ffffff",
+    surfaceE2: "#ffffff",
+    surfaceE3: "#ffffff",
+    surfaceMs1: "#ffffff",
+    surfaceMs2: "#ffffff",
+    surfaceMs3: "#ffffff",
+    surfaceJ1: "#ffffff",
+    surfaceJ2: "#ffffff",
+    surfaceJ3: "#ffffff",
+    craterJ1: "#ffffff",
+    craterJ2: "#ffffff",
     surfaceS1: "#ffffff",
+    surfaceS2: "#ffffff",
+    ringS2: "#ffffff",
+    ringS1: "#ffffff",
+    ringS3: "#ffffff",
+    surfaceU1: "#ffffff",
+    ringU1: "#ffffff",
+    surfaceU2: "#ffffff",
+    surfaceU3: "#ffffff",
+    surfaceU4: "#ffffff",
+    surfaceN1: "#ffffff",
+    surfaceN2: "#ffffff",
+    surfaceN3: "#ffffff",
+    surfaceN4: "#ffffff",
+    surfaceN5: "#ffffff",
+    surefaceN6: "#ffffff",
     land: "#ffffff",
     caps: "#ffffff",
     topland: "#ffffff",
     ring: "#ffffff"
   },
 })
+
 
 function Planets({ ...props }) {
     const group = useRef()
@@ -97,6 +132,65 @@ function Planets({ ...props }) {
     }, [hovered])
 
     const { nodes, materials } = useGLTF('allPlanets2.glb')
+    
+
+    let planetsArray = [
+      {name: "Mercury", 
+      mesh: [{geometry: nodes.Icosphere002.geometry, material: materials.surfaceM1, materialColor: snap.items.surfaceM1},
+            {geometry: nodes.Icosphere002_1.geometry, material: materials.surfaceM2, materialColor: snap.items.surfaceM2} ]
+      }, 
+      {name: "Venus", 
+      mesh: [{geometry: nodes.Sphere007.geometry, material: materials.surfaceV1, materialColor: snap.items.surfaceV1},
+            {geometry: nodes.Sphere007_1.geometry, material: materials.surfaceV2, materialColor: snap.items.surfaceV2},
+            {geometry: nodes.Sphere007_2.geometry, material: materials.surfaceV3, materialColor: snap.items.surfaceV3},
+            {geometry: nodes.Sphere007_3.geometry, material: materials.surfaceV4, materialColor: snap.items.surfaceV4},
+            {geometry: nodes.Sphere007_4.geometry, material: materials.surfaceV5, materialColor: snap.items.surfaceV5},
+            {geometry: nodes.Sphere007_5.geometry, material: materials.surfaceV6, materialColor: snap.items.surfaceV6}]
+      },
+      {name: "Earth", 
+      mesh: [{geometry: nodes.Icosphere003.geometry, material: materials.surfaceE1, materialColor: snap.items.surfaceE1},
+            {geometry: nodes.Icosphere003_1.geometry, material: materials.surfaceE2, materialColor: snap.items.surfaceE2},
+            {geometry: nodes.Icosphere003_2.geometry, material: materials.surfaceE3, materialColor: snap.items.surfaceE3}]
+      },
+      {name: "Mars", 
+      mesh: [{geometry: nodes.Sphere006.geometry, material: materials.surfaceMs1, materialColor: snap.items.surfaceMs1},
+            {geometry: nodes.Sphere006_1.geometry, material: materials.surfaceMs2, materialColor: snap.items.surfaceMs2},
+            {geometry: nodes.Sphere006_2.geometry, material: materials.surfaceMs3, materialColor: snap.items.surfaceMs3}]
+      },
+      {name: "Jupiter", 
+      mesh: [{geometry: nodes.Sphere003.geometry, material: materials.surfaceJ1, materialColor: snap.items.surfaceJ1},
+            {geometry: nodes.Sphere003_1.geometry, material: materials.surfaceJ2, materialColor: snap.items.surfaceJ2},
+            {geometry: nodes.Sphere003_2.geometry, material: materials.surfaceJ3, materialColor: snap.items.surfaceJ3},
+            {geometry: nodes.Sphere003_3.geometry, material: materials.craterJ1, materialColor: snap.items.craterJ1},
+            {geometry: nodes.Sphere003_4.geometry, material: materials.craterJ2, materialColor: snap.items.craterJ2}]
+      },
+      {name: "Saturn", 
+      mesh: [{geometry: nodes.Icosphere001.geometry, material: materials.surfaceS1, materialColor: snap.items.surfaceS1},
+            {geometry: nodes.Icosphere001_1.geometry, material: materials.surfaceS2, materialColor: snap.items.surfaceS2},
+            {geometry: nodes.Icosphere001_2.geometry, material: materials.ringS2, materialColor: snap.items.ringS2},
+            {geometry: nodes.Icosphere001_3.geometry, material: materials.ringS1, materialColor: snap.items.ringS1},
+            {geometry: nodes.Icosphere001_4.geometry, material: materials.ringS3, materialColor: snap.items.ringS3}]
+      },
+      {name: "Uranus", 
+      mesh: [{geometry: nodes.Sphere004.geometry, material: materials.surfaceU1, materialColor: snap.items.surfaceU1},
+            {geometry: nodes.Sphere004_1.geometry, material: materials.ringU1, materialColor: snap.items.ringU1},
+            {geometry: nodes.Sphere004_2.geometry, material: materials.surfaceU2, materialColor: snap.items.surfaceU2},
+            {geometry: nodes.Sphere004_3.geometry, material: materials.surfaceU3, materialColor: snap.items.surfaceU3},
+            {geometry: nodes.Sphere004_4.geometry, material: materials.surfaceU4, materialColor: snap.items.surfaceU4}]
+      },
+      {name: "Neptune", 
+      mesh: [{geometry: nodes.Sphere005.geometry, material: materials.surfaceN1, materialColor: snap.items.surfaceN1},
+            {geometry: nodes.Sphere005_1.geometry, material: materials.surfaceN2, materialColor: snap.items.surfaceN2},
+            {geometry: nodes.Sphere005_2.geometry, material: materials.surfaceN3, materialColor: snap.items.surfaceN3},
+            {geometry: nodes.Sphere005_3.geometry, material: materials.surfaceN4, materialColor: snap.items.surfaceN4},
+            {geometry: nodes.Sphere005_4.geometry, material: materials.surfaceN5, materialColor: snap.items.surfaceN5},
+            {geometry: nodes.Sphere005_5.geometry, material: materials.surfaceN6, materialColor: snap.items.surfaceN6}]
+      }
+    ]
+
+    let [currentPlanet, setCurrentPlanet] = useState(planetsArray[0]);
+    // const [geometry, setGeometry] = useState(currentPlanet.mesh);
+    console.log(currentPlanet.mesh);
     return (
       <group
       ref={ref}
@@ -109,11 +203,11 @@ function Planets({ ...props }) {
         {/* <mesh geometry={nodes.Icosphere_1.geometry} material={materials.sea} material-color={snap.items.sea}/>
         <mesh geometry={nodes.Icosphere_2.geometry} material={materials.land} material-color={snap.items.land}/>
         <mesh geometry={nodes.Icosphere_3.geometry} material={materials.topland} material-color={snap.items.topland}/> */}
-        <mesh geometry={nodes.Icosphere001.geometry} material={materials.surfaceS1} material-color={snap.items.surfaceS1} />
-        <mesh geometry={nodes.Icosphere001_1.geometry} material={materials.surfaceS2} material-color={snap.items.land}/>
-        <mesh geometry={nodes.Icosphere001_2.geometry} material={materials.ringS2} material-color={snap.items.topland}/>
-        <mesh geometry={nodes.Icosphere001_3.geometry} material={materials.ringS1} material-color={snap.items.caps}/>
-        <mesh geometry={nodes.Icosphere001_4.geometry} material={materials.ringS3} material-color={snap.items.ring}/>
+        {currentPlanet.mesh.map((el, idx)=>(
+          <mesh key={idx} geometry={el.geometry} material={el.material} material-color={el.materialColor}/>
+        ))}
+        {/* <mesh geometry={nodes.Icosphere002.geometry} material={materials.surfaceM1} material-color={snap.items.surfaceM1}/>
+        <mesh geometry={nodes.Icosphere002_1.geometry} material={materials.surfaceM2} material-color={snap.items.surfaceM2}/> */}
         </group>
       </group>
     )
@@ -124,7 +218,8 @@ function Planets({ ...props }) {
     const snap = useSnapshot(state)
     return (
       <div style={{ display: snap.current ? "flex" : "none" }} className="pickerAndText">
-        <HexColorPicker className="picker" color={snap.items[snap.current]} onChange={(color) => (state.items[snap.current] = color)} />
+        <HexColorPicker className="picker" color={snap.items[snap.current]} onChange={(color) => 
+          state.items[snap.current] = color} />
         <h1 className="exampleH1">{snap.current}</h1>
       </div>
     )

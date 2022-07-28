@@ -84,6 +84,10 @@ function App() {
     console.log(event.target.scrollLeft);
     setDistance(event.target.scrollLeft);
   }
+  
+  const handleClick = () => {
+
+  }
 
   return (
     <>
@@ -167,7 +171,7 @@ function App() {
             <div>
             <div className="cards-stack">
             {planets.slice(1).map((planet) => (
-                <a className='carD' style={{borderRadius: "18px", textDecoration: "none", color: "black"}} >
+                <a key={planet.name} className='carD' style={{borderRadius: "18px", textDecoration: "none", color: "black"}} onClick={handleClick}>
                     <div className="card-cover"></div>
                     <div className="details">
                         <div className="details-title">{planet.name}</div>
