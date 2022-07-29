@@ -226,12 +226,12 @@ function App() {
             <p style={{color: "rgb(156,163,175)", marginBottom: "0"}}>“Not explaining science seems to me perverse. When you're in love, you want to tell the world.” Carl Sagan</p>
         </div>
         <div className="flex-row" style={{fontSize: "15px"}}>
-            <p className="text-gray-600">
+            {/* <p className="text-gray-600">
                 <a href="https://github.com/Default-bit/space-app">Github</a>
             </p>
             <p className="text-gray-600">
                 <a href="https://www.linkedin.com">LinkedIn</a>
-            </p>
+            </p> */}
             <p className="text-gray-600">
                 <a href="https://www.instagram.com/nfactorial.school/">n! Incubator</a>
             </p>
