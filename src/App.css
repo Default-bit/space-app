@@ -90,7 +90,7 @@
 .clouds {
   background: transparent url(clouds.png) repeat top center;
   z-index: 2;
-  opacity: 0.7;
+  opacity: 1.5;
   animation: move-clouds-back 200s linear infinite;
 }
 
@@ -229,7 +229,6 @@ body {
 .copy {
   /* font-family: var(--font-serif); */
   font-size: 1.125rem;
-  font-style: italic;
   line-height: 1.35;
 }
 
@@ -304,6 +303,7 @@ body {
 .column{
   display: flex;
   flex-direction: column;
+  color: white;
 }
 
 .example{
@@ -311,7 +311,8 @@ body {
   height: 100vh;
   background: white;
   display: flex;
-  padding-top: 100px;
+  padding-top: 50px;
+  margin-bottom: 100px;
 }
 
 
@@ -354,6 +355,7 @@ body {
   justify-content: center;
   position: relative;
   z-index: 3;
+  padding-top: 25px;
 }
 
 .temp {
@@ -372,6 +374,7 @@ body {
 
 .temp span {
   font-size: 40px;
+  color: black;
 }
 
 .message {
@@ -396,11 +399,11 @@ body {
     width: 0;
   }
   15% {
-    width: 700px;
+    width: 500px;
   }
   30% {
     top: 0.2rem;
-    width: 700px;
+    width: 500px;
   }
   33% {
     top: 0.2rem;
@@ -416,7 +419,7 @@ body {
   }
   48% {
     top: -4.5rem;
-    width: 700px;
+    width: 500px;
   }
   62% {
     top: -4.5rem;
@@ -438,7 +441,7 @@ body {
   }
   95% {
     top: -9rem;
-    width: 700px;
+    width: 500px;
   }
   98% {
     top: -9rem;
@@ -478,7 +481,7 @@ body {
 
 .carD:hover {
   transform: scale(1.01);
-  border: 1px solid rgb(10, 132, 255);
+  border: 1px solid rgb(36, 55, 73);
 }
 
 .card-cover {
@@ -505,3 +508,41 @@ body {
 .details-desc {
   font-size: 16px;
 }
+
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #000 url(stars.png) repeat top center;
+}
+.pad-3 {
+  padding: 3rem;
+}
+.footer-text{
+  margin-bottom: 0;
+  display: flex;
+  gap: 8px;
+  width: 100vw;
+  justify-content: center;
+}
+.flex-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.text-gray-600 a {
+  text-decoration: none;
+  color: white;
+  margin: 0 0.5rem 0 0.5rem;
+}
+
+
+.parentArdak {
+  width: 100vw;
+}
+
+
+
+

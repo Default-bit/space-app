@@ -1,4 +1,4 @@
-import { Suspense, useRef, useState, useEffect } from "react"
+import { Suspense, useRef, useState, useEffect, useMemo } from "react"
 import { Canvas, useFrame } from "@react-three/fiber"
 import { ContactShadows, Environment, useGLTF, OrbitControls } from "@react-three/drei"
 import { HexColorPicker } from "react-colorful"
@@ -129,12 +129,12 @@ function Planets({ ...props }) {
         document.body.style.cursor = `url('data:image/svg+xml;base64,${btoa(cursor)}'), auto`
         return () => (document.body.style.cursor = `url('data:image/svg+xml;base64,${btoa(auto)}'), auto`)
       }
-    }, [hovered])
+    }, [hovered, snap.items])
 
-    const { nodes, materials } = useGLTF('allPlanets2.glb')
+    const { nodes, materials } = useGLTF('PlanetsSolarSystemFinal2.glb')
     
-
-    let planetsArray = [
+    let planetsArray = useMemo(() => [], []);
+    planetsArray = [
       {name: "Mercury", 
       mesh: [{geometry: nodes.Icosphere002.geometry, material: materials.surfaceM1, materialColor: snap.items.surfaceM1},
             {geometry: nodes.Icosphere002_1.geometry, material: materials.surfaceM2, materialColor: snap.items.surfaceM2} ]
@@ -185,6 +185,11 @@ function Planets({ ...props }) {
             {geometry: nodes.Sphere005_3.geometry, material: materials.surfaceN4, materialColor: snap.items.surfaceN4},
             {geometry: nodes.Sphere005_4.geometry, material: materials.surfaceN5, materialColor: snap.items.surfaceN5},
             {geometry: nodes.Sphere005_5.geometry, material: materials.surefaceN6, materialColor: snap.items.surefaceN6}]
+      },
+      {name: "Planet-X", 
+      mesh: [{geometry: nodes.Icosphere_1.geometry, material: materials.sea, materialColor: snap.items.sea},
+            {geometry: nodes.Icosphere_2.geometry, material: materials.land, materialColor: snap.items.land},
+            {geometry: nodes.Icosphere_3.geometry, material: materials.topland, materialColor: snap.items.topland}]
       }
     ]
 
@@ -192,7 +197,7 @@ function Planets({ ...props }) {
 
     useEffect(() => {
       setCurrentPlanet(planetsArray[index]);
-    });
+    }, [index, planetsArray]);
 
     // console.log(snap.items[snap.current]);
     // console.log(state);
@@ -212,8 +217,6 @@ function Planets({ ...props }) {
         {currentPlanet.mesh.map((el, idx)=>(
           <mesh key={idx} geometry={el.geometry} material={el.material} material-color={el.materialColor}/>
         ))}
-        {/* <mesh geometry={nodes.Icosphere002.geometry} material={materials.surfaceM1} material-color={snap.items.surfaceM1}/>
-        <mesh geometry={nodes.Icosphere002_1.geometry} material={materials.surfaceM2} material-color={snap.items.surfaceM2}/> */}
         </group>
       </group>
     )
@@ -263,9 +266,4 @@ export default function PlanetExample( {id} ) {
     </>
   )
 }
-
-
-
-
-// START START START START
 
