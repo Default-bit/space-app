@@ -108,8 +108,6 @@ function Planets({ ...props }) {
 }
 
   function Planet2({ index}) {
-    
-    console.log(index + " is chosen");
     const ref = useRef()
     const snap = useSnapshot(state)
 
@@ -198,9 +196,6 @@ function Planets({ ...props }) {
     useEffect(() => {
       setCurrentPlanet(planetsArray[index]);
     }, [index, planetsArray]);
-
-    // console.log(snap.items[snap.current]);
-    // console.log(state);
     
     return (
       <group
@@ -241,7 +236,6 @@ function Planets({ ...props }) {
 
 export default function PlanetExample( {id} ) {
   const canvasRef = useRef(null)
-  console.log(id);
 
   return (
     <>

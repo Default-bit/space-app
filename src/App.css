@@ -243,6 +243,7 @@ body {
   color: white;
   background-color: black;
   border: none;
+  border-radius: 15px;
 }
 .btn:hover {
   background-color: #0d0d0d;
@@ -312,9 +313,16 @@ body {
   background: white;
   display: flex;
   padding-top: 50px;
-  margin-bottom: 100px;
 }
 
+.example2{
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 
 .scrolling-wrapper {
@@ -372,6 +380,23 @@ body {
   margin-top: 50px;
 }
 
+.title2 {
+  color: white;
+  font-size: 3rem;
+  font-weight: 100;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 10vh;
+}
+.title2 p {
+  width: inherit;
+  height: inherit;
+  font-size: 40px;
+  color: black;
+  margin-left: 400px;
+
+}
 .temp span {
   font-size: 40px;
   color: black;
@@ -464,6 +489,12 @@ body {
   grid-column-gap: 15px;
   padding: 64px;
 }
+.cards-stack2 {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-column-gap: 15px;
+  padding-left: 172px;
+}
 
 .details-desc {
   font-size: 16px;
@@ -478,10 +509,23 @@ body {
   height: 200px;
   width: 176px;
 }
+.carD2 {
+  overflow: hidden;
+  box-shadow: rgba(201, 201, 201, 0.3) 0px 5px 15px 0px;
+  display: block;
+  transition: all 0.3s ease-out;
+  border-radius: 18px;
+  height: 200px;
+  width: 500px;
+}
 
 .carD:hover {
   transform: scale(1.01);
   border: 1px solid rgb(36, 55, 73);
+}
+.carD2:hover {
+  transform: scale(1.01);
+  border: 2px solid rgb(240, 211, 94);
 }
 
 .card-cover {
@@ -517,8 +561,18 @@ body {
   justify-content: center;
   background: #000 url(stars.png) repeat top center;
 }
+.flex-column2 {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  background: transparent;
+}
 .pad-3 {
   padding: 3rem;
+}
+.pad-1 {
+  padding: 1rem;
 }
 .footer-text{
   margin-bottom: 0;
@@ -532,10 +586,21 @@ body {
   align-items: center;
   justify-content: center;
 }
+.flex-row2 {
+  display: flex;
+  align-items:flex-end;
+  justify-content: flex-end;
+}
 .text-gray-600 a {
   text-decoration: none;
   color: white;
   margin: 0 0.5rem 0 0.5rem;
+}
+.text-gray2 a {
+  /* text-decoration: none; */
+  font-weight: 900;
+  color: white;
+  margin: 0 0.5rem 0 -70.5rem;
 }
 
 

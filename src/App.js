@@ -13,76 +13,125 @@ import Paint from "./Paint";
 import Planet from "./Planet";
 import Example from "./Example";
 import PlanetExample from "./PlanetExample";
+import logo from "./logo.png";
 
 import * as React from "react";
 import { useRef, useEffect, useState } from "react";
 import exportAsImage from "./utils/exportAsImage";
+import useOnScreen from './hooks/useOnScreen';
 
 const planets = [
   {
+    id:0,
     image: sun,
     name: "There are 8 planets in Solar System",
     info: "Pluto is not a planet",
-    distance: "567",
+    distance: 0,
   },
   {
+    id:1,
     image: mercury,
     name: "Mercury",
     info: "The smallest and fastest planet, Mercury is the closest planet to the Sun and whips around it every 88 Earth days.",
-    distance: "567",
+    distance: 364,
   },
   {
+    id:2,
     image: venus,
     name: "Venus",
     info: "Spinning in the opposite direction to most planets, Venus is the hottest planet, and one of the brightest objects in the sky.",
-    distance: "567",
+    distance: 680,
   },
   {
+    id:3,
     image: earth,
     name: "Earth",
     info: "The place we call home, Earth is the third rock from the sun and the only planet with known life on it - and lots of it too!",
-    distance: "567",
+    distance: 940,
   },
   {
+    id:4,
     image: mars,
     name: "Mars",
     info: "The red planet is dusty, cold world with a thin atmosphere and is home to four NASA robots.",
-    distance: "567",
+    distance: 1430,
   },
   {
+    id:5,
     image: jupiter,
     name: "Jupiter",
     info: "Jupiter is a massive planet, twice the size of all other planets combined, and has a centuries-old storm that is bigger than Earth.",
-    distance: "567",
+    distance: 4890,
   },
   {
+    id:6,
     image: saturn,
     name: "Saturn",
     info: "The most recognizable planet with a system of icy rings, Saturn is a very unique and interesting planet.",
-    distance: "567",
+    distance: 9004,
   },
   {
+    id:7,
     image: uranus,
     name: "Uranus",
     info: "Uranus has a very unique rotation--it spins on its side at an almost 90-degree angle, unlike other planets.",
-    distance: "567",
+    distance: 18080,
   },
   {
+    id:8,
     image: neptune,
     name: "Neptune",
     info: "Neptune is now the most distant planet and is a cold and dark world nearly 3 billion miles from the Sun.",
-    distance: "567",
+    distance: 28290,
+  },
+];
+
+const models = [
+  {
+    title: "Space Station",
+    quantity: 8,
+  }, 
+  {
+    title: "Rocket inventory",
+    quantity: 10,
+  },
+  {
+    title: "Space food",
+    quantity: 7,
+  },
+  {
+    title: "Galaxies",
+    quantity: 12,
   },
 ];
 
 
 function App() {
-  const exportRef = useRef();
-  let [distance, setDistance] = useState(0);
+  const [distance, setDistance] = useState(planets[0].distance);
+  const [currentPlanet,setCurrentPlanet] = useState(planets[0]);
+  // const [currentDistance,setCurrentDistance] = useState(0);
 
-  let handleScroll = (event) => {
-    console.log(event.target.scrollLeft);
-    setDistance(event.target.scrollLeft);
+  const ref = useRef()
+  const isVisible = useOnScreen(ref)
+
+  const  handleScroll = (event) => {
+     console.log(event.target.scrollWidth);
+     console.log(event.target.clientWidth);
+
+     const winScroll = event.target.scrollLeft;
+
+     const width =
+     event.target.scrollWidth -
+     event.target.clientWidth
+
+     console.log(winScroll/width);
+
+    // const nextPlanetDistance = planets[currentPlanet.id+1].distance/100
+    
+    // setCurrentPlanet((prevP)=>planets[prevP.id+1]);
+    
+    setDistance((prev) => prev + 1);
+    
   }
 
   const [selected, setSelected] = useState(1);
@@ -91,12 +140,10 @@ function App() {
   
   const handleClick = (event, idx) => {
     setSelected(idx);
-    console.log(idx);
   }
 
-  // useEffect(() => {
-  //   setSelected(idx);
-  // }, [idx]);
+
+
 
   const numberIso=8;
 
@@ -109,6 +156,25 @@ function App() {
           rel="stylesheet"
         />
         <link rel="stylesheet" href="style.css" />
+        {/* START */}
+        <div className="flex-column2 pad-3">
+        <div style={{ justifyContent: "flex-start", zIndex: 3,   display: "flex", alignItems: "center", justifyContent: "center"}}>
+          <img src={logo} alt="app-logo"
+                        style={{ width: "50px", marginRight: "80vw"}}>
+          </img>
+          <p className="text-gray2">
+                <a>3DX</a>
+          </p>
+          </div>
+        <div className="flex-row2" style={{fontSize: "15px", zIndex: 3}}>
+            <p className="text-gray-600">
+                <a href="https://www.nfactorial.school/">Login</a>
+            </p>
+            <p className="text-gray-600">
+                <a href="https://www.nfactorial.school/">Register</a>
+            </p>
+        </div>
+      </div>
       </header>
 
       <div className="parentArdak">
@@ -120,14 +186,16 @@ function App() {
           <div className="title">
             <h1>Solar System</h1>
           </div>
-          <div className="depth-line">{distance} km away</div>
+          <div className="depth-line">{distance} million km away</div>
           <div className="scrollMenu text">
             <div className="page-content" onScroll={handleScroll}>
               {planets.map((planet) => (
-                <div key={planet.name} className="card">
+                <div key={planet.name} className="card" onClick={() => setDistance(planet.distance)}>
                   <div className="content">
                     <div>
                       <img
+                        ref={ref}
+                        id={planet.name}
                         src={planet.image}
                         alt="planet-information"
                         style={{ width: "500px" }}
@@ -221,6 +289,28 @@ function App() {
           </div>
         </div>
 
+
+        <div>
+          <div className="example2">
+            <div>
+            <div className="title2"><p>Collection of thematic 3D models</p></div>
+            <div className="cards-stack2">
+            {models.map((model, idx) => (
+                <a key={idx} className='carD2' style={{borderRadius: "18px", textDecoration: "none", color: "black"}} onClick={event => handleClick(event, idx)}>
+                    <div className="card-cover"></div>
+                    <div className="details">
+                        <div className="details-title">{model.title}</div>
+                        <div className="details-title">3D Models: {model.quantity}</div>
+                        <button className="details-title btn">Buy</button>
+                    </div>
+                </a>
+            ))}
+        </div>
+            
+            </div>
+          </div>
+        </div>
+
         <footer className="flex-column pad-3">
         <div className="footer-text">
             <p style={{color: "rgb(156,163,175)", marginBottom: "0"}}>“Not explaining science seems to me perverse. When you're in love, you want to tell the world.” Carl Sagan</p>
@@ -233,7 +323,7 @@ function App() {
                 <a href="https://www.linkedin.com">LinkedIn</a>
             </p> */}
             <p className="text-gray-600">
-                <a href="https://www.instagram.com/nfactorial.school/">n! Incubator</a>
+                <a href="https://www.nfactorial.school/">n! Incubator 2022</a>
             </p>
         </div>
     </footer>
