@@ -651,7 +651,7 @@ body {
   }
 
   .planets-images {
-    width: 200px;
+    width: 320px;
   }
   
   .text {
@@ -685,6 +685,7 @@ body {
   .planetCanvas {
     justify-content: center;
     align-items: center;
+    padding-top: 32px;
   }
   @media (min-width: 600px) {
     .card {
@@ -766,7 +767,7 @@ body {
     font-weight: 700;
     font-size: 16px;
     transition: opacity .3s ease-in-out;
-    top: 240px;
+    top: 325px;
   }
   
   /* FACTORS: TEMPERATURE */
@@ -891,6 +892,7 @@ body {
     grid-template-columns: repeat(3,1fr);
     grid-column-gap: 15px;
     padding: 16px;
+    width: 100vw;
   }
   .cards-stack2 {
     display: grid;

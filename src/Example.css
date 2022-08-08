@@ -98,7 +98,7 @@ body {
   .columnDiv {
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 92vw;
     height: 50vh;
     border: 2px;
     border-style: solid;
