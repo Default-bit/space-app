@@ -248,7 +248,6 @@ function App() {
             <div className="cards-stack2">
             {models.map((model, idx) => (
                 <a key={idx} className='carD2' style={{borderRadius: "18px", textDecoration: "none", color: "black"}} onClick={event => handleClick(event, idx)}>
-                    <div className="card-cover"></div>
                     <div className="details">
                         <div className="details-title2">{model.title}</div>
                         <div className="details-title2">3D Models: {model.quantity}</div>
