@@ -293,6 +293,8 @@ body {
   background: white;
   display: flex;
   padding-top: 50px;
+  justify-content: center;
+  align-items: center;
 }
 
 .example2{
@@ -337,19 +339,17 @@ body {
   top: 507px;
 }
 
-/* FACTORS: TEMPERATURE */
+/* PAINT: YOUR OWN PLANET */
 .parentTemp {
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   z-index: 3;
-  padding-top: 25px;
 }
 
 .temp {
   color: white;
-  /* font-family: tahoma; */
   font-size: 3rem;
   font-weight: 100;
   line-height: 1.5;
@@ -357,26 +357,21 @@ body {
   white-space: nowrap;
   overflow: hidden;
   position: relative;
-  width: 100vw;
+  width: 40vw;
   margin-top: 50px;
+  justify-content: center;
+  align-items: center;
+
 }
 
-.title2 {
-  color: white;
-  font-size: 3rem;
+.title2 p {
+  color: black;
+  font-size: 40px;
   font-weight: 100;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 10vh;
-}
-.title2 p {
-  width: inherit;
-  height: inherit;
-  font-size: 40px;
-  color: black;
-  margin-left: 400px;
-
+  text-align: center;
+  padding-bottom: 32px;
 }
 .temp span {
   font-size: 40px;
@@ -522,11 +517,6 @@ body {
   align-items: flex-start;
 }
 .details-title {
-  /* font-size: 24px;
-  line-height: 1.23536;
-  font-weight: 600;
-  letter-spacing: -.024em; */
-
   font-size: 1rem;
   font-weight: bold;
   letter-spacing: 0.025rem;
@@ -572,6 +562,14 @@ body {
   width: 100vw;
   justify-content: center;
 }
+.footer-quote{
+  color: rgb(156,163,175);
+  margin-bottom: 0;
+  font-size: 16px;
+  padding-left: 56px;
+  padding-right: 56px;
+  padding-bottom: 15px;
+}
 .flex-row {
   display: flex;
   align-items: center;
@@ -588,7 +586,6 @@ body {
   margin: 0 0.5rem 0 0.5rem;
 }
 .text-gray2 a {
-  /* text-decoration: none; */
   font-weight: 900;
   color: white;
   margin: 0 0.5rem 0 -70.5rem;
@@ -602,9 +599,35 @@ body {
   width: 500px;
 }
 
+.navbar {
+  justify-content: flex-start;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+}
+
+.logo-image{
+  width: 50px;
+  margin-right: 80vw;
+}
+
 /* RESPONSIVE CODE */
 
 @media only screen and (max-width: 1024px) {
+  .navbar {
+    justify-content: flex-start;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    width: 100vw;
+  }
+  .logo-image{
+    width: 50px;
+    margin-right: -32vw;
+  }
+  
+
   .title h1 {
     font-size: 28px;
     padding: 16px;
@@ -624,7 +647,7 @@ body {
   }
   
   div.scrollMenu {
-    height: 80vh;
+    height: 75vh;
   }
 
   .planets-images {
@@ -659,6 +682,10 @@ body {
     scroll-snap-align: start;
   }
 
+  .planetCanvas {
+    justify-content: center;
+    align-items: center;
+  }
   @media (min-width: 600px) {
     .card {
       height: 600px;
@@ -710,6 +737,10 @@ body {
   
   .example{
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0px;
+    height: 86vh;
   }
   
   .example2{
@@ -750,7 +781,6 @@ body {
   
   .temp {
     color: white;
-    /* font-family: tahoma; */
     font-size: 3rem;
     font-weight: 100;
     line-height: 1.5;
@@ -761,27 +791,19 @@ body {
     width: 100vw;
     margin-top: 50px;
   }
-  
-  .title2 {
-    color: white;
-    font-size: 3rem;
+  .title2 p {
+    color: black;
+    font-size: 28px;
     font-weight: 100;
     justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 10vh;
-  }
-  .title2 p {
-    width: inherit;
-    height: inherit;
-    font-size: 40px;
-    color: black;
-    margin-left: 400px;
-  
+    text-align: center;
+    padding-bottom: 32px;
   }
   .temp span {
-    font-size: 40px;
+    font-size: 32px;
     color: black;
+    padding-left: 32px;
   }
   
   .message {
@@ -793,7 +815,7 @@ body {
     position: absolute;
     padding-left: 0.5rem;
     top: 0.2rem;
-    left: 188px;
+    left: 160px;
     animation: openclose 5s ease-in-out infinite;
   }
   
@@ -806,11 +828,11 @@ body {
       width: 0;
     }
     15% {
-      width: 500px;
+      width: 210px;
     }
     30% {
       top: 0.2rem;
-      width: 500px;
+      width: 210px;
     }
     33% {
       top: 0.2rem;
@@ -826,11 +848,11 @@ body {
     }
     48% {
       top: -4.5rem;
-      width: 500px;
+      width: 210px;
     }
     62% {
       top: -4.5rem;
-      width: 700px;
+      width: 210px;
     }
     66% {
       top: -4.5rem;
@@ -844,11 +866,11 @@ body {
     }
     86% {
       top: -9rem;
-      width: 500px;
+      width: 210px;
     }
     95% {
       top: -9rem;
-      width: 500px;
+      width: 210px;
     }
     98% {
       top: -9rem;
@@ -873,9 +895,12 @@ body {
   .cards-stack2 {
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    grid-column-gap: 15px;
+    grid-column-gap: 0px;
     justify-content: center;
-  }
+    align-items: center;
+    padding-left: 32px;
+    padding-right: 16px;
+    }
   .details-desc {
     font-size: 16px;
   }
@@ -886,7 +911,7 @@ body {
     transition: all 0.3s ease-out;
     border-radius: 18px;
     height: 64px;
-    width: 92px;
+    width: 112px;
   }
   .carD2 {
     overflow: hidden;
@@ -895,7 +920,7 @@ body {
     transition: all 0.3s ease-out;
     border-radius: 18px;
     height: 200px;
-    width: 200px;
+    width: 155px;
   }
   .carD:hover {
     transform: scale(1.01);
@@ -962,6 +987,14 @@ body {
     width: 100vw;
     justify-content: center;
   }
+  .footer-quote{
+    color: rgb(156,163,175);
+    margin-bottom: 0;
+    font-size: 16px;
+    padding-left: 56px;
+    padding-right: 56px;
+    padding-bottom: 15px;
+  }
   .flex-row {
     display: flex;
     align-items: center;
@@ -978,10 +1011,9 @@ body {
     margin: 0 0.5rem 0 0.5rem;
   }
   .text-gray2 a {
-    /* text-decoration: none; */
     font-weight: 900;
     color: white;
-    margin: 0 0.5rem 0 -70.5rem;
+    margin: 0 0.5rem 0 8.5rem;
   }
   
   .parentArdak {

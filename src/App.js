@@ -151,22 +151,22 @@ function App() {
         <link rel="stylesheet" href="style.css" />
         {/* START */}
         <div className="flex-column2 pad-3">
-        <div style={{ justifyContent: "flex-start", zIndex: 3,   display: "flex", alignItems: "center", justifyContent: "center"}}>
+        <div className="navbar">
           <img src={logo} alt="app-logo"
-                        style={{ width: "50px", marginRight: "80vw"}}>
+                        className="logo-image">
           </img>
           <p className="text-gray2">
                 <a>3DX</a>
           </p>
           </div>
-        <div className="flex-row2" style={{fontSize: "15px", zIndex: 3}}>
+        {/* <div className="flex-row2" style={{fontSize: "15px", zIndex: 3}}>
             <p className="text-gray-600">
                 <a href="https://www.nfactorial.school/">Login</a>
             </p>
             <p className="text-gray-600">
                 <a href="https://www.nfactorial.school/">Register</a>
             </p>
-        </div>
+        </div> */}
       </div>
       </header>
 
@@ -206,7 +206,7 @@ function App() {
         </div>
 
         <div>
-          {/* <div className="parentTemp">
+          <div className="parentTemp">
               <h1 className="temp">
                 <span>paint</span>
                 <div className="message">
@@ -215,7 +215,7 @@ function App() {
                   <div className="word3">planet</div>
                 </div>
               </h1>
-            </div> */}
+            </div>
           <div className="example">
             <div>
             <div className="cards-stack">
@@ -244,7 +244,7 @@ function App() {
         <div>
           <div className="example2">
             <div>
-            {/* <div className="title2"><p>Collection of thematic 3D models</p></div> */}
+            <div className="title2"><p>Collection of thematic 3D models</p></div>
             <div className="cards-stack2">
             {models.map((model, idx) => (
                 <a key={idx} className='carD2' style={{borderRadius: "18px", textDecoration: "none", color: "black"}} onClick={event => handleClick(event, idx)}>
@@ -252,7 +252,7 @@ function App() {
                     <div className="details">
                         <div className="details-title2">{model.title}</div>
                         <div className="details-title2">3D Models: {model.quantity}</div>
-                        <button className="details-title2 btn">Buy</button>
+                        <button className="details-title2 btn" style={{color: "white"}}>Buy</button>
                     </div>
                 </a>
             ))}
@@ -264,7 +264,7 @@ function App() {
 
         <footer className="flex-column pad-3">
         <div className="footer-text">
-            <p style={{color: "rgb(156,163,175)", marginBottom: "0"}}>“Not explaining science seems to me perverse. When you're in love, you want to tell the world.” Carl Sagan</p>
+            <p className="footer-quote">“Not explaining science seems to me perverse. When you're in love, you want to tell the world.” Carl Sagan</p>
         </div>
         <div className="flex-row" style={{fontSize: "15px"}}>
             {/* <p className="text-gray-600">
