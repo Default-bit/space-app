@@ -30,8 +30,6 @@ body {
   margin: 75px;
   font-size: 2em;
   font-weight: 600;
-  /* line-height: 0.7em;
-  letter-spacing: -6px; */
   color: #272730;
 }
 
@@ -62,7 +60,7 @@ body {
   cursor: pointer;
   margin-top: 1.5rem;
   padding: 0.75rem 1.5rem;
-  font-size: 0.65rem;
+  font-size: 1rem;
   font-weight: bold;
   letter-spacing: 0.025rem;
   text-transform: uppercase;
@@ -76,4 +74,60 @@ body {
 .btn-make-planet:hover {
   color: white;
   background-color: black;
+}
+
+
+@media only screen and (max-width: 1024px) {
+  .exampleH1 {
+    top: 43px;
+    left: 140px;
+    padding-left: 40px;
+    margin: 75px;
+    font-size: 2em;
+    font-weight: 600;
+    color: #272730;
+  }
+  
+  .picker {
+    top: 74px;
+    left: 70px;
+    width: 90px !important;
+    height: 90px !important;
+  }
+  
+  .columnDiv {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 50vh;
+    border: 2px;
+    border-style: solid;
+    border-color: #272730;
+    justify-content: center;
+    border-radius: 35px;
+  }
+  
+  .pickerAndText {
+    display: flex;
+  }
+  
+  .btn-make-planet {
+    cursor: pointer;
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    letter-spacing: 0.025rem;
+    text-transform: uppercase;
+    color: black;
+    background-color: white;
+    border: none;
+    border-radius: 0 0 32px 32px;
+    height: 65px;
+  
+  }
+  .btn-make-planet:hover {
+    color: white;
+    background-color: black;
+  }
 }

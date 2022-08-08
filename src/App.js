@@ -7,18 +7,12 @@ import jupiter from "./jupiter.png";
 import saturn from "./saturn.png";
 import uranus from "./uranus.png";
 import neptune from "./neptune.png";
-import frozen from "./frozen.png";
 import sun from "./sun.png";
-import Paint from "./Paint";
-import Planet from "./Planet";
-import Example from "./Example";
 import PlanetExample from "./PlanetExample";
-import logo from "./logo.png";
+import logo from "./Icon.png";
 
 import * as React from "react";
-import { useRef, useEffect, useState } from "react";
-import exportAsImage from "./utils/exportAsImage";
-import useOnScreen from './hooks/useOnScreen';
+import { useRef, useState } from "react";
 
 const planets = [
   {
@@ -108,11 +102,10 @@ const models = [
 
 function App() {
   const [distance, setDistance] = useState(planets[0].distance);
-  const [currentPlanet,setCurrentPlanet] = useState(planets[0]);
+  // const [currentPlanet,setCurrentPlanet] = useState(planets[0]);
   // const [currentDistance,setCurrentDistance] = useState(0);
 
   const ref = useRef()
-  const isVisible = useOnScreen(ref)
 
   const  handleScroll = (event) => {
      console.log(event.target.scrollWidth);
@@ -198,14 +191,13 @@ function App() {
                         id={planet.name}
                         src={planet.image}
                         alt="planet-information"
-                        style={{ width: "500px" }}
+                        className="planets-images"
                       />
                     </div>
                     <h2 className="title">{planet.name}</h2>
-                    <p className="copy">
+                    <div className="copy">
                       {planet.info}
-                    </p>
-                    {/* <button className="btn">View Trips</button> */}
+                    </div>
                   </div>
                 </div>
               ))}
@@ -214,46 +206,7 @@ function App() {
         </div>
 
         <div>
-          {/* <div className="section">
-            <div className="parentTemp">
-              <h1 className="temp">
-                <span>factors</span>
-                <div className="message">
-                  <div className="word1">temperature</div>
-                  <div className="word2">atmosphere</div>
-                  <div className="word3">composition</div>
-                </div>
-              </h1>
-            </div>
-            <div className="row">
-              <div>
-                <img
-                  src={frozen}
-                  alt="planet"
-                  style={{ width: "500px", margin: "100px" }}
-                />
-              </div>
-              <div className="column">
-                <div>Earth</div>
-                <div>👇🏻</div>
-                <div>The Solar System</div>
-                <div>👇🏻</div>
-                <div>Orion Arm</div>
-                <div>👇🏻</div>
-                <div>The Milky Way</div>
-                <div>👇🏻</div>
-                <div>Local Group</div>
-                <div>👇🏻</div>
-                <div>Virgo Cluster</div>
-                <div>👇🏻</div>
-                <div>Virgo Super-Cluster</div>
-                <div>👇🏻</div>
-                <div>Universe</div>
-              </div>
-            </div>
-          </div> */}
-
-          <div className="parentTemp">
+          {/* <div className="parentTemp">
               <h1 className="temp">
                 <span>paint</span>
                 <div className="message">
@@ -262,20 +215,18 @@ function App() {
                   <div className="word3">planet</div>
                 </div>
               </h1>
-            </div>
+            </div> */}
           <div className="example">
             <div>
             <div className="cards-stack">
             {planets.slice(1).map((planet, idx) => (
-                <a key={idx} className='carD' style={{borderRadius: "18px", textDecoration: "none", color: "black"}} onClick={event => handleClick(event, idx)}>
-                    <div className="card-cover"></div>
+                <a key={idx} className='carD' onClick={event => handleClick(event, idx)}>
                     <div className="details">
                         <div className="details-title">{planet.name}</div>
                     </div>
                 </a>
             ))}
-                <a key={numberIso} className='carD' style={{borderRadius: "18px", textDecoration: "none", color: "black"}} onClick={event => handleClick(event, numberIso)}>
-                    <div className="card-cover"></div>
+                <a key={numberIso} className='carD' onClick={event => handleClick(event, numberIso)}>
                     <div className="details">
                         <div className="details-title">planet-X</div>
                     </div>
@@ -293,15 +244,15 @@ function App() {
         <div>
           <div className="example2">
             <div>
-            <div className="title2"><p>Collection of thematic 3D models</p></div>
+            {/* <div className="title2"><p>Collection of thematic 3D models</p></div> */}
             <div className="cards-stack2">
             {models.map((model, idx) => (
                 <a key={idx} className='carD2' style={{borderRadius: "18px", textDecoration: "none", color: "black"}} onClick={event => handleClick(event, idx)}>
                     <div className="card-cover"></div>
                     <div className="details">
-                        <div className="details-title">{model.title}</div>
-                        <div className="details-title">3D Models: {model.quantity}</div>
-                        <button className="details-title btn">Buy</button>
+                        <div className="details-title2">{model.title}</div>
+                        <div className="details-title2">3D Models: {model.quantity}</div>
+                        <button className="details-title2 btn">Buy</button>
                     </div>
                 </a>
             ))}
