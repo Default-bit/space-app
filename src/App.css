@@ -896,6 +896,7 @@ body {
     display: grid;
     grid-template-columns: repeat(2,1fr);
     grid-column-gap: 0px;
+    grid-row-gap: 16px;
     justify-content: center;
     align-items: center;
     padding-left: 32px;
