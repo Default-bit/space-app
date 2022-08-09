@@ -12,7 +12,7 @@ import PlanetExample from "./PlanetExample";
 import logo from "./Icon.png";
 
 import * as React from "react";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 
 const planets = [
   {
@@ -102,30 +102,36 @@ const models = [
 
 function App() {
   const [distance, setDistance] = useState(planets[0].distance);
-  // const [currentPlanet,setCurrentPlanet] = useState(planets[0]);
-  // const [currentDistance,setCurrentDistance] = useState(0);
+  const [planetDistance, setPlanetDistance] = useState(0);
 
   const ref = useRef()
 
   const  handleScroll = (event) => {
-     console.log(event.target.scrollWidth);
-     console.log(event.target.clientWidth);
+    //  console.log(event.target.scrollWidth);
+    //  console.log(event.target.clientWidth);
 
      const winScroll = event.target.scrollLeft;
-
-     const width =
-     event.target.scrollWidth -
-     event.target.clientWidth
+     const width = event.target.scrollWidth - event.target.clientWidth;
+     let planetDistance = winScroll/width;
+     setPlanetDistance(planetDistance);
+     
 
      console.log(winScroll/width);
-
-    // const nextPlanetDistance = planets[currentPlanet.id+1].distance/100
     
-    // setCurrentPlanet((prevP)=>planets[prevP.id+1]);
-    
-    setDistance((prev) => prev + 1);
-    
+      setDistance((prev) => prev + 5);
   }
+
+  useEffect(() => {
+    if(planetDistance === 0) setDistance(0);
+    else if(planetDistance === 0.125) setDistance(364);
+    else if(planetDistance === 0.25) setDistance(680);
+    else if(planetDistance === 0.375) setDistance(940);
+    else if(planetDistance === 0.5) setDistance(1430);
+    else if(planetDistance === 0.625) setDistance(4890);
+    else if(planetDistance === 0.75) setDistance(9004);
+    else if(planetDistance === 0.875) setDistance(18080);
+    else if(planetDistance === 1) setDistance(28290);
+  }, [distance, planetDistance]);
 
   const [selected, setSelected] = useState(1);
 
@@ -196,7 +202,7 @@ function App() {
                     </div>
                     <h2 className="title">{planet.name}</h2>
                     <div className="copy">
-                      {planet.info}
+                      <p>{planet.info}</p>
                     </div>
                   </div>
                 </div>
