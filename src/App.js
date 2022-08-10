@@ -272,14 +272,16 @@ function App() {
             <p className="footer-quote">“Not explaining science seems to me perverse. When you're in love, you want to tell the world.” Carl Sagan</p>
         </div>
         <div className="flex-row" style={{fontSize: "15px"}}>
-            {/* <p className="text-gray-600">
-                <a href="https://github.com/Default-bit/space-app">Github</a>
+          <div className="flex-row2">
+            <p className="text-gray-600">
+                <a href="https://github.com/Default-bit/space-app" target="_blank">Github</a>
             </p>
             <p className="text-gray-600">
-                <a href="https://www.linkedin.com">LinkedIn</a>
-            </p> */}
+                <a href="https://www.linkedin.com/in/alipova/" target="_blank">LinkedIn</a>
+            </p>
+          </div>
             <p className="text-gray-600">
-                <a href="https://www.nfactorial.school/">n! Incubator 2022</a>
+                <a>Made in nFactorial Incubator'22</a>
             </p>
         </div>
     </footer>
