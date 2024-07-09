@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# 3DX React Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<img width="1440" alt="Screen Shot 2022-08-06 at 16 23 07" src="https://github.com/Default-bit/space-app/assets/63794288/fe80be00-78f0-485d-b338-493f10877d9b">
 
-## Available Scripts
+## Examples of captured images
 
-In the project directory, you can run:
+<div style="display: flex; justify-content: space-around;">
+    <img style="height: 200px; object-fit: cover;" alt="Screenshot 3" src="https://github.com/Default-bit/space-app/assets/63794288/f7c3a9df-5a6d-4be6-a555-82ca184b9981">
+    <img style="height: 200px; object-fit: cover;" alt="Screenshot 3" src="https://github.com/Default-bit/space-app/assets/63794288/2b783679-f330-432a-a41b-7eff64b71632">
+    <img style="height: 200px; object-fit: cover;" alt="Screenshot 3" src="https://github.com/Default-bit/space-app/assets/63794288/cb64e9f7-c8c1-4454-832c-e94fff63d292">
+</div>
 
-### `npm start`
+## Project Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This project is a 3DX React Application that integrates 3D models of planets created in Blender into a React.js environment. It utilizes Three.js and React Three Fiber to render and manipulate 3D objects, allowing users to interact with colorful representations of celestial bodies.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Features
 
-### `npm test`
+- **3D Model Creation**: Made and exported 9 3D models of planets from Blender.
+- **Rendering**: Combined React.js, Three.js, and React Three Fiber to color and display 3D models.
+- **Image Capture**: Applied the JavaScript library html2canvas to capture and download images of the painted 3D models.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Technologies Used
 
-### `npm run build`
+- React.js
+- Three.js
+- React Three Fiber
+- JavaScript
+- CSS
+- HTML
+- Blender
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+To view or deploy this project locally, follow these steps:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/Default-bit/space-app.git
+    ```
+2. **Navigate to the project directory:**
+    ```bash
+    cd space-app
+    ```
+3. **Install dependencies:**
+    ```bash
+    npm install
+    ```
+4. **Run the project:**
+    ```bash
+    npm start
+    ```
+5. **Open your web browser and navigate to http://localhost:3000 to view the project.**
 
-### `npm run eject`
+## Usage
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Explore**: Interact with the 3D models of planets.
+- **Capture**: Use the provided functionality to capture and download images of the models.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Additional screenshots
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+<img alt="Screenshot 1" src="https://github.com/Default-bit/space-app/assets/63794288/9376d00f-37ce-4596-9ead-dac5678f8868">
 
-## Learn More
+<div style="display: flex; justify-content: space-around;">
+    <img style="height: 300px; object-fit: cover;" alt="Screenshot 1" src="https://github.com/Default-bit/space-app/assets/63794288/352bef61-b4a7-4f47-be35-748f4f68a14a">
+    <img style="height: 300px; object-fit: cover;" alt="Screenshot 2" src="https://github.com/Default-bit/space-app/assets/63794288/f3c132e6-7500-4cd2-a238-e8b9856724dd">
+</div>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
